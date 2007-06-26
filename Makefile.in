@@ -62,9 +62,7 @@ MANFILES= xplot.1 tcpdump2xplot.1
 all:	${PROG}
 
 ${PROG}: ${OFILES}
-	${CC} ${CFLAGS} -o $@.new ${OFILES} ${LIBS}
-	-mv -f $@ $@.old
-	mv -f $@.new $@
+	${CC} ${CFLAGS} -o $@ ${OFILES} ${LIBS}
 
 version_string.c: version
 	echo 'char *version_string = "'`cat version`'";' >version_string.c
