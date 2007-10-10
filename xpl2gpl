@@ -44,11 +44,11 @@ function format_to(datatype) {
 	if (datatype == "signed")
 		return("%.0f");
 	if (datatype == "double")
-		return("%.0f");
+		return("%.3f");
 	if (datatype == "timeval")
-		return("%.0f");
+		return("%.3f");
 	if (datatype == "dtime")
-		return("%.0f");
+		return("%.3f");
 	printf("Unknown datatype: \"%s\"\n", datatype) > "/dev/tty";
 	exit;
 }
@@ -90,7 +90,7 @@ BEGIN	   {
 		label_index = 0;
 		
 		#No. of sec. from Jan 01, 1970 to Jan 01, 2000
-		secs_2000=946684800.0;
+		secs_2000=0;
 		
 		# get the axis types
 		getline;
@@ -521,9 +521,6 @@ END	{
 		printf("set ylabel \"%s\"\n", YLABEL) >> gpl_file;
 		printf("set format x \"%s\"\n", xaxis_format) >> gpl_file;
 		printf("set format y \"%s\"\n", yaxis_format) >> gpl_file;
-		if(xaxis_type == "timeval" || xaxis_type == "dtime") {
-		  printf("set xdata time\n") >> gpl_file;
-		}
 		printf("unset key\n") >> gpl_file;
 		printf("load \"%s\";\n", labels_file) >> gpl_file;
 		
