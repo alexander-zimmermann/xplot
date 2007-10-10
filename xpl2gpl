@@ -702,6 +702,8 @@ END	{
 		}
 		printf(";\n") >> gpl_file;
 		printf("bind all \"ctrl-p\" \"set output \\\"%s.pdf\\\"; set term pdf color enhanced; replot; set term x11 enhanced raise; replot; set mouse;\";\n", BASENAME) >> gpl_file;
+		printf("bind all \"ctrl-o\" \"set xr[0:]; set yr[0:]; replot\";") >> gpl_file;
+
 		printf("pause -1;\n") >> gpl_file;
 		close( gpl_file );
 		close( labels_file );
@@ -1388,6 +1390,7 @@ END	{
 		printf(";\n") >> gpl_file;
 		if(labels_present)    printf("load \"%s\";\n", labels_file) >> gpl_file;
 		printf("bind all \"ctrl-p\" \"set output \\\"%s.pdf\\\"; set term pdf color enhanced; replot; set term x11 enhanced raise; replot; set mouse;\";\n", BASENAME) >> gpl_file;
+		printf("bind all \"ctrl-o\" \"set xr[0:]; set yr[0:]; replot\";") >> gpl_file;
 		printf("pause -1;\n") >> gpl_file;
 		close( gpl_file );
 
