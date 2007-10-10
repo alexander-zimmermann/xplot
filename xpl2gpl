@@ -524,7 +524,7 @@ END	{
 		if(xaxis_type == "timeval" || xaxis_type == "dtime") {
 		  printf("set xdata time\n") >> gpl_file;
 		}
-		printf("set nokey\n") >> gpl_file;
+		printf("unset key\n") >> gpl_file;
 		printf("load \"%s\";\n", labels_file) >> gpl_file;
 		
 		first = 1;
