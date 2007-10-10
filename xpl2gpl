@@ -800,7 +800,7 @@ BEGIN	   {
 		label_index = 0;
 		
 		#No. of sec. from Jan 01, 1970 to Jan 01, 2000
-		secs_2000=946684800.0;
+		secs_2000=0;
 		
 		# get the axis types
 		getline;
@@ -1379,8 +1379,8 @@ END	{
 		{
 		  xpoint = x_pt[l];
 		  ypoint = y_pt[l];
-		  if(max_ypoint > 0 && label_dir[l] == -1) ypoint = ypoint - (50000000 * ((max_ypoint - min_ypoint)/max_ypoint));		  
-		  if(max_ypoint > 0 && label_dir[l] == +1) ypoint = ypoint + (50000000 * ((max_ypoint - min_ypoint)/max_ypoint));
+		  if(max_ypoint > 0 && label_dir[l] == -1) ypoint = ypoint - (1 * ((max_ypoint - min_ypoint)/max_ypoint));		  
+		  if(max_ypoint > 0 && label_dir[l] == +1) ypoint = ypoint + (1 * ((max_ypoint - min_ypoint)/max_ypoint));
 		  curr_label = label[l];
 		  if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("set label \"%s\" at (%f-%f), %f center\n", curr_label, xpoint, secs_2000, ypoint) >> labels_file;
 		  else printf("set label \"%s\" at %f, %f center\n", $1, xpoint, ypoint) >> labels_file;
