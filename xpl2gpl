@@ -544,7 +544,7 @@ END	{
 
  		    if(file_style[dataset] == "dot")
 		    {
-			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1-946684800.0):2 with dots", ++dataset_index) >> gpl_file;
+			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1):2 with dots", ++dataset_index) >> gpl_file;
 			else printf("index %d with dots", ++dataset_index) >> gpl_file;
 			printf("\n\n") >> FILE;
 			close( FILE );
@@ -552,7 +552,7 @@ END	{
 		    }
 		    if(file_style[dataset] == "line")
 		    {
-			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1-946684800.0):2 with lines", ++dataset_index) >> gpl_file;
+			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1):2 with lines", ++dataset_index) >> gpl_file;
 			else printf("index %d with lines", ++dataset_index) >> gpl_file;
 			printf("\n\n") >> FILE;
 			close( FILE );
@@ -560,7 +560,7 @@ END	{
 		    }	
 		    if(file_style[dataset] == "diamond") 
 		    {
-			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1-946684800.0):2 with points pt 1", ++dataset_index) >> gpl_file;
+			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1):2 with points pt 1", ++dataset_index) >> gpl_file;
 			else printf("index %d with points pt 1", ++dataset_index) >> gpl_file;
 			printf("\n\n") >> FILE;
 			close( FILE );
@@ -568,7 +568,7 @@ END	{
 		    }
 		    if(file_style[dataset] == "box")
 		    {
-			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1-946684800.0):2 with points pt 3", ++dataset_index) >> gpl_file;
+			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1):2 with points pt 3", ++dataset_index) >> gpl_file;
 			else printf("index %d with points pt 3", ++dataset_index) >> gpl_file;
 			printf("\n\n") >> FILE;
 			close( FILE );
@@ -576,7 +576,7 @@ END	{
 		    }
 		    if(file_style[dataset] == "cross") 
 		    {
-			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1-946684800.0):2 with points pt 4", ++dataset_index) >> gpl_file;
+			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1):2 with points pt 4", ++dataset_index) >> gpl_file;
 			else printf("index %d with points pt 4", ++dataset_index) >> gpl_file;
 			printf("\n\n") >> FILE;
 			close( FILE );
@@ -584,7 +584,7 @@ END	{
 		    }
 		    if(file_style[dataset] == "uarrow") 
 		    {
-			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1-946684800.0):2 with points pt 1", ++dataset_index) >> gpl_file;
+			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1):2 with points pt 1", ++dataset_index) >> gpl_file;
 			else printf("index %d with points pt 1", ++dataset_index) >> gpl_file;
 			printf("\n\n") >> FILE;
 			close( FILE );
@@ -592,7 +592,7 @@ END	{
 		    }
 		    if(file_style[dataset] == "darrow") 
 		    {
-			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1-946684800.0):2 with points pt 1", ++dataset_index) >> gpl_file;
+			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1):2 with points pt 1", ++dataset_index) >> gpl_file;
 			else printf("index %d with points pt 1", ++dataset_index) >> gpl_file;
 			printf("\n\n") >> FILE;
 			close( FILE );
@@ -600,7 +600,7 @@ END	{
 		    }
 		    if(file_style[dataset] == "dtick")
 		    {
-			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1-946684800.0):2 with points pt 2", ++dataset_index) >> gpl_file;
+			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1):2 with points pt 2", ++dataset_index) >> gpl_file;
 			else printf("index %d with points pt 2", ++dataset_index) >> gpl_file;
 			printf("\n\n") >> FILE;
 			close( FILE );
@@ -608,7 +608,7 @@ END	{
 		    }
 		    if(file_style[dataset] == "utick")
 		    {
-			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1-946684800.0):2 with points pt 2", ++dataset_index) >> gpl_file;
+			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1):2 with points pt 2", ++dataset_index) >> gpl_file;
 			else printf("index %d with points pt 2", ++dataset_index) >> gpl_file;
 			printf("\n\n") >> FILE;
 			close( FILE );
@@ -616,7 +616,7 @@ END	{
 		    }
 		    if(file_style[dataset] == "x")
 		    {
-			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1-946684800.0):2 with points pt 4", ++dataset_index) >> gpl_file;
+			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1):2 with points pt 4", ++dataset_index) >> gpl_file;
 			else printf("index %d with points pt 4", ++dataset_index) >> gpl_file;
 			printf("\n\n") >> FILE;
 			close( FILE );
@@ -624,7 +624,7 @@ END	{
 		    }
 		    if(file_style[dataset] == "plus")
 		    {
-			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1-946684800.0):2 with points pt 2", ++dataset_index) >> gpl_file;
+			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1):2 with points pt 2", ++dataset_index) >> gpl_file;
 			else printf("index %d with points pt 2", ++dataset_index) >> gpl_file;
 			printf("\n\n") >> FILE;
 			close( FILE );
@@ -632,7 +632,7 @@ END	{
 		    }
 		    if(file_style[dataset] == "ltick")
 		    {
-			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1-946684800.0):2 with points pt 2", ++dataset_index) >> gpl_file;
+			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1):2 with points pt 2", ++dataset_index) >> gpl_file;
 			else printf("index %d with points pt 2", ++dataset_index) >> gpl_file;
 			printf("\n\n") >> FILE;
 			close( FILE );
@@ -640,7 +640,7 @@ END	{
 		    }
 		    if(file_style[dataset] == "rtick")
 		    {
-			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1-946684800.0):2 with points pt 2", ++dataset_index) >> gpl_file;
+			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1):2 with points pt 2", ++dataset_index) >> gpl_file;
 			else printf("index %d with points pt 2", ++dataset_index) >> gpl_file;
 			printf("\n\n") >> FILE;
 			close( FILE );
@@ -648,7 +648,7 @@ END	{
 		    }
 		    if(file_style[dataset] == "htick")
 		    {
-			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1-946684800.0):2 with points pt 2", ++dataset_index) >> gpl_file;
+			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1):2 with points pt 2", ++dataset_index) >> gpl_file;
 			else printf("index %d with points pt 2", ++dataset_index) >> gpl_file;
 			printf("\n\n") >> FILE;
 			close( FILE );
@@ -656,7 +656,7 @@ END	{
 		    }
 		    if(file_style[dataset] == "vtick")
 		    {
-			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1-946684800.0):2 with points pt 2", ++dataset_index) >> gpl_file;
+			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1):2 with points pt 2", ++dataset_index) >> gpl_file;
 			else printf("index %d with points pt 2", ++dataset_index) >> gpl_file;
 			printf("\n\n") >> FILE;
 			close( FILE );
@@ -665,7 +665,7 @@ END	{
 
 		    if(file_style[dataset] == "larrow")
 		    {
-			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1-946684800.0):2 with points pt 5", ++dataset_index) >> gpl_file;
+			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1):2 with points pt 5", ++dataset_index) >> gpl_file;
 			else printf("index %d with points pt 5", ++dataset_index) >> gpl_file;
 			printf("\n\n") >> FILE;
 			close( FILE );
@@ -673,7 +673,7 @@ END	{
 		    }
 		    if(file_style[dataset] == "rarrow")
 		    {
-			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1-946684800.0):2 with points pt 5", ++dataset_index) >> gpl_file;
+			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1):2 with points pt 5", ++dataset_index) >> gpl_file;
 			else printf("index %d with points pt 5", ++dataset_index) >> gpl_file;
 			printf("\n\n") >> FILE;
 			close( FILE );
@@ -681,7 +681,7 @@ END	{
 		    }
 		    if(file_style[dataset] == "dline")
 		    {
-			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1-946684800.0):2 with linespoints pt 4", ++dataset_index) >> gpl_file;
+			if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("index %d using ($1):2 with linespoints pt 4", ++dataset_index) >> gpl_file;
 			else printf("index %d with linespoints pt 4", ++dataset_index) >> gpl_file;
 			printf("\n\n") >> FILE;
 			close( FILE );
@@ -1248,126 +1248,126 @@ END	{
 
 		    if(file_style[dataset] == "dot")
 		    {
-		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1-946684800.0):2 with dots") >> gpl_file;
+		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1):2 with dots") >> gpl_file;
 		        else printf("with dots") >> gpl_file;
 			close( FILE );		      
 		    }
 		    
 		    if(file_style[dataset] == "line")
 		    {
-		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1-946684800.0):2 with lines") >> gpl_file;
+		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1):2 with lines") >> gpl_file;
 		        else printf("with lines") >> gpl_file;
 			close( FILE );
 		    }
 		    
 		    if(file_style[dataset] == "diamond")
 		    {
-		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1-946684800.0):2 with points pt 1") >> gpl_file;
+		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1):2 with points pt 1") >> gpl_file;
 		        else printf("with points pt 1") >> gpl_file;
 			close( FILE );
 		    }
 			
 		    if(file_style[dataset] == "box")
 		    {
-		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1-946684800.0):2 with points pt 3") >> gpl_file;
+		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1):2 with points pt 3") >> gpl_file;
 		        else printf("with points pt 3") >> gpl_file;
 			close( FILE );
 		    }
 		
 		    if(file_style[dataset] == "cross") 
 		    {
-		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1-946684800.0):2 with points pt 4") >> gpl_file;
+		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1):2 with points pt 4") >> gpl_file;
 			else printf("with points pt 4") >> gpl_file;
 			close( FILE );
 		    }
 		
 		    if(file_style[dataset] == "uarrow")
 		    {
-		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1-946684800.0):2 with points pt 1") >> gpl_file;
+		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1):2 with points pt 1") >> gpl_file;
 			else printf("with points pt 1") >> gpl_file;
 			close( FILE );
 		    }
 			
 		    if(file_style[dataset] == "darrow")
 		    {
-		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1-946684800.0):2 with points pt 1") >> gpl_file;
+		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1):2 with points pt 1") >> gpl_file;
 			else printf("with points pt 1") >> gpl_file;
 			close( FILE );
 		    }
 			
 		    if(file_style[dataset] == "dtick")
 		    {
-		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1-946684800.0):2 with points pt 2") >> gpl_file;
+		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1):2 with points pt 2") >> gpl_file;
 			else printf("with points pt 2") >> gpl_file;
 			close( FILE );
 		    }
 			
 		    if(file_style[dataset] == "utick")
 		    {
-		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1-946684800.0):2 with points pt 2") >> gpl_file;
+		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1):2 with points pt 2") >> gpl_file;
 			else printf("with points pt 2") >> gpl_file;
 			close( FILE );
 		    }
 			
 		    if(file_style[dataset] == "x")
 		    {
-		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1-946684800.0):2 with points pt 4") >> gpl_file;
+		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1):2 with points pt 4") >> gpl_file;
 			else printf("with points pt 4") >> gpl_file;
 			close( FILE );
 		    }
 			
 		    if(file_style[dataset] == "plus")
 		    {
-		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1-946684800.0):2 with points pt 2") >> gpl_file;
+		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1):2 with points pt 2") >> gpl_file;
 			else printf("with points pt 2") >> gpl_file;
 			close( FILE );
 		    }
 					
 		    if(file_style[dataset] == "ltick") 
 		    {
-		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1-946684800.0):2 with points pt 2") >> gpl_file;
+		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1):2 with points pt 2") >> gpl_file;
 			else printf("with points pt 2") >> gpl_file;
 			close( FILE );
 		    }
 			
 		    if(file_style[dataset] == "rtick") 
 		    {
-		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1-946684800.0):2 with points pt 2") >> gpl_file;
+		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1):2 with points pt 2") >> gpl_file;
 			else printf("with points pt 2") >> gpl_file;
 			close( FILE );
 		    }
 			
 		    if(file_style[dataset] == "htick")
 		    {
-		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1-946684800.0):2 with points pt 2") >> gpl_file;
+		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1):2 with points pt 2") >> gpl_file;
 			else printf("with points pt 2") >> gpl_file;
 			close( FILE );
 		    }
 			
 		    if(file_style[dataset] == "vtick")
 		    {
-		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1-946684800.0):2 with points pt 2") >> gpl_file;
+		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1):2 with points pt 2") >> gpl_file;
 			else printf("with points pt 2") >> gpl_file;
 			close( FILE );
 		    }
 			
 		    if(file_style[dataset] == "larrow")
 		    {
-		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1-946684800.0):2 with points pt 5") >> gpl_file;
+		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1):2 with points pt 5") >> gpl_file;
 			else printf("with points pt 5") >> gpl_file;
 			close( FILE );
 		    }
 			
 		    if(file_style[dataset] == "rarrow")
 		    {
-		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1-946684800.0):2 with points pt 5") >> gpl_file;
+		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1):2 with points pt 5") >> gpl_file;
 			else printf("with points pt 5") >> gpl_file;
 			close( FILE );
 		    }
 			
 		    if(file_style[dataset] == "dline")
 		    {
-		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1-946684800.0):2 with linespoints pt 4") >> gpl_file;
+		        if(xaxis_type == "timeval" || xaxis_type == "dtime") printf("using ($1):2 with linespoints pt 4") >> gpl_file;
 			else printf("with linespoints pt 4") >> gpl_file;
 			close( FILE );
 		    }
