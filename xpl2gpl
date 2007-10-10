@@ -515,6 +515,7 @@ BEGIN	   {
 
 END	{
 
+		printf("set term x11 enhanced raise\n", TITLE) >> gpl_file;
 		printf("set title \"%s\"\n", TITLE) >> gpl_file;
 		printf("set xlabel \"%s\"\n", XLABEL) >> gpl_file;
 		printf("set ylabel \"%s\"\n", YLABEL) >> gpl_file;
@@ -700,9 +701,7 @@ END	{
 		}
 		}
 		printf(";\n") >> gpl_file;
-		printf("set term postscript\n") >> gpl_file;
-		printf("set output \"%s.ps\"\n", BASENAME) >> gpl_file;
-		printf("replot\n") >> gpl_file;
+		printf("bind all \"ctrl-p\" \"set output \\\"%s.pdf\\\"; set term pdf color enhanced; replot; set term x11 enhanced raise; replot; set mouse;\";\n", BASENAME) >> gpl_file;
 		printf("pause -1;\n") >> gpl_file;
 		close( gpl_file );
 		close( labels_file );
@@ -1221,6 +1220,7 @@ BEGIN	   {
 # Creating the gnuplot file and deleting all the dataset files after concatenating all contents into one file
 
 END	{
+		printf("set term x11\n", TITLE) >> gpl_file;
 		printf("set title \"%s\"\n", TITLE) >> gpl_file;
 		printf("set xlabel \"%s\"\n", XLABEL) >> gpl_file;
 		printf("set ylabel \"%s\"\n", YLABEL) >> gpl_file;
@@ -1229,7 +1229,7 @@ END	{
 		if(xaxis_type == "timeval" || xaxis_type == "dtime") {
 		  printf("set xdata time\n") >> gpl_file;
 		}
-		printf("set nokey\n") >> gpl_file;
+		printf("unset key\n") >> gpl_file;
 		printf("load \"%s\";\n", labels_file) >> gpl_file;	
 		first = 1;
 		
@@ -1386,10 +1386,8 @@ END	{
 		}
 		}
 		printf(";\n") >> gpl_file;
-		printf("set term postscript\n") >> gpl_file;
-		printf("set output \"%s.ps\"\n", BASENAME) >> gpl_file;
-		printf("replot\n") >> gpl_file;
 		if(labels_present)    printf("load \"%s\";\n", labels_file) >> gpl_file;
+		printf("bind all \"ctrl-p\" \"set output \\\"%s.pdf\\\"; set term pdf color enhanced; replot; set term x11 enhanced raise; replot; set mouse;\";\n", BASENAME) >> gpl_file;
 		printf("pause -1;\n") >> gpl_file;
 		close( gpl_file );
 
