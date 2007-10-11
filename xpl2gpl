@@ -44,18 +44,18 @@ function format_to(datatype)
 BEGIN {
 	styles["dot"] = "dots";
 	styles["line"] = "lines";
-	styles["diamond"] = "points pt 12";
-	styles["box"] = "points pt 4";
-	styles["cross"] = "points pt 2";
-	styles["uarrow"] = "points pt 1";
-#	styles["uarrow"] = "points pt 8";
-	styles["darrow"] = "points pt 1";
-#	styles["darrow"] = "points pt 10";
-	styles["dtick"] = "points pt 1";
-	styles["utick"] = "points pt 1";
-	styles["htick"] = "points pt 1";
-	styles["x"] = "points pt 2";
-	styles["plus"] = "points pt 1";
+	styles["diamond"] = "points pt 12 ps PS";
+	styles["box"] = "points pt 4 ps PS";
+	styles["cross"] = "points pt 2 ps PS";
+	styles["uarrow"] = "points pt 1 ps PS";
+#	styles["uarrow"] = "points pt 8 ps PS";
+	styles["darrow"] = "points pt 1 ps PS";
+#	styles["darrow"] = "points pt 10 ps PS";
+	styles["dtick"] = "points pt 1 ps PS";
+	styles["utick"] = "points pt 1 ps PS";
+	styles["htick"] = "points pt 1 ps PS";
+	styles["x"] = "points pt 2 ps PS";
+	styles["plus"] = "points pt 1 ps PS";
 
 	colors["white"] = -1;
 	colors["green"] = 2;
@@ -198,6 +198,7 @@ END {
 	plot = plot "set format x \"" xaxis_format "\";\n";
 	plot = plot "set format y \"" yaxis_format "\";\n";
 	#plot = plot "set xtics;\n";
+	plot = plot "PS = 1;\n";
 	plot = plot "unset key;\n";
 	plot = plot "load \"" labels_file "\";\n";
 
@@ -237,11 +238,12 @@ END {
 
 	plot = plot "bind all \"ctrl-p\" \"set output \\\"" BASENAME ".pdf\\\"; set term pdf color enhanced; replot; set term x11 enhanced raise; replot; set mouse;\";\n";
 	plot = plot "bind all \"ctrl-o\" \"set xr[0:]; set yr[0:]; replot;\";";
+	plot = plot "bind all \"ctrl-j\" \"PS=PS+0.1; replot;\";";
+	plot = plot "bind all \"ctrl-k\" \"PS=PS-0.1; replot;\";";
 
 	plot = plot "pause -1;\n";
 
 	print plot >> gpl_file;
 	close(gpl_file);
 
-}
-' $1
+} ' $1
