@@ -199,7 +199,9 @@ END {
 	plot = plot "set format y \"" yaxis_format "\";\n";
 	#plot = plot "set xtics;\n";
 	plot = plot "PS = 1;\n";
+	plot = plot "G = 0;\n";
 	plot = plot "unset key;\n";
+	plot = plot "key;\n";
 	plot = plot "load \"" labels_file "\";\n";
 
 	first = 1;
@@ -238,8 +240,9 @@ END {
 
 	plot = plot "bind all \"ctrl-p\" \"set output \\\"" BASENAME ".pdf\\\"; set term pdf color enhanced; replot; set term x11 enhanced raise; replot; set mouse;\";\n";
 	plot = plot "bind all \"ctrl-o\" \"set xr[0:]; set yr[0:]; replot;\";";
-	plot = plot "bind all \"ctrl-j\" \"PS=PS+0.1; replot;\";";
-	plot = plot "bind all \"ctrl-k\" \"PS=PS-0.1; replot;\";";
+	plot = plot "bind all \"ctrl-j\" \"PS = PS+0.1; replot;\";";
+	plot = plot "bind all \"ctrl-k\" \"PS = PS-0.1; replot;\";";
+	plot = plot "bind all \"ctrl-r\" \"G = G+1; if (G%2) set grid; replot; else unset grid; replot;\";";
 
 	plot = plot "pause -1;\n";
 
