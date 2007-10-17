@@ -210,6 +210,7 @@ END {
 	plot = plot "load \"" labels_file "\";\n";
 
 	first = 1;
+	tsg = index("_tsg", BASENAME) != -1;
 
 	for (dataset in dataset_type) {
 
@@ -219,8 +220,8 @@ END {
 			printf("Bad datatype: \"%s\"\n", datatype); 
 			continue;
 		}
-		color=set[1];
-		style=set[2];
+		color = set[1];
+		style = set[2];
 
 		if (first) {
 			plot = plot "plot ";
@@ -237,8 +238,26 @@ END {
 
 		if (colors[color])
 			plot = plot " lc " colors[color];
+
+		if (tsg && color == "red" && style == "line")
+			retransmits_present = 1;
+
+		plot = plot " notitle";
 	}
-	plot = plot ";\n";
+
+	/* Add a key for Time Sequence Diagrams */
+	if (tsg) {
+		plot = plot ", 1/0 lc " colors["yellow"] " title \"Advertised Window\"";
+		plot = plot ", 1/0 lc " colors["green"] " title \"Cumulative ACK\"";
+		plot = plot ", 1/0 lc " colors["white"] " title \"Sent Segments\"";
+		if (retransmits_present)
+			plot = plot ", 1/0 with points lc " colors["red"] " pt 1 title \"Retransmitted Segment\"";
+		plot = plot ";"
+		plot = plot "set key box top left;\n";
+		plot = plot "replot;\n";
+	} else {
+		plot = plot ";\n";
+	}
 
 	if (labels_present)
 		plot = plot "load \"" labels_file "\";\n";
