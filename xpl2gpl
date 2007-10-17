@@ -194,6 +194,7 @@ END {
 	plot = plot "PS = 0.1;\n";
 	plot = plot "G = -1;\n";
 	plot = plot "set term x11 enhanced raise;\n";
+	gsub("\"", "\\\"", TITLE);
 	plot = plot "set title \"" TITLE "\";\n";
 	plot = plot "set xlabel \"" XLABEL "\";\n";
 	plot = plot "set ylabel \"" YLABEL "\";\n";
