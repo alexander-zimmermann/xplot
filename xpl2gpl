@@ -243,7 +243,10 @@ END {
 	if (labels_present)
 		plot = plot "load \"" labels_file "\";\n";
 
-	plot = plot "bind all \"ctrl-p\" \"set output \\\"" BASENAME ".pdf\\\"; set term pdf color enhanced; replot; set term x11 enhanced raise; replot; set mouse;\";\n";
+	/* Add key bindings */
+	plot = plot "bind all \"ctrl-p\" \"set output \\\"" BASENAME ".pdf\\\"; " \
+			"set term pdf color solid rounded enhanced fname \\\"Helvetica\\\" fsize 3 linewidth 1.0; replot; " \
+			"set term x11 enhanced raise; replot; set mouse;\";\n";
 	plot = plot "bind all \"ctrl-o\" \"set xr[0:]; set yr[0:]; replot;\";";
 	plot = plot "bind all \"ctrl-j\" \"PS = PS+0.1; replot;\";";
 	plot = plot "bind all \"ctrl-k\" \"PS = PS-0.1; replot;\";";
