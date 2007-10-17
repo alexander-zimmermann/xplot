@@ -200,14 +200,11 @@ END {
 	plot = plot "set ylabel \"" YLABEL "\";\n";
 	plot = plot "set format x \"" xaxis_format "\";\n";
 	plot = plot "set format y \"" yaxis_format "\";\n";
-	plot = plot "PS = 1;\n";
-	plot = plot "G = -1;\n";
-	plot = plot "unset key;\n";
 	plot = plot "set tics border out mirror;\n";
-	plot = plot "set mxtics;\n";
-	plot = plot "set mytics;\n";
 	plot = plot "unset x2tics;\n";
 	plot = plot "unset y2tics;\n";
+	plot = plot "set mxtics;\n";
+	plot = plot "set mytics;\n";
 	plot = plot "load \"" labels_file "\";\n";
 
 	first = 1;
