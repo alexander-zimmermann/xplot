@@ -67,9 +67,9 @@ BEGIN {
 	colors["magenta"] = 4;
 	colors["pink"] = 12;
 
-	TITLE=FILENAME;
-	XLABEL="x";
-	YLABEL="y";
+	TITLE = FILENAME;
+	XLABEL = "x";
+	YLABEL = "y";
 
 	current_dataset_color = "white";
 	current_dataset_style = "white";
@@ -99,14 +99,14 @@ BEGIN {
 
 /^ylabel$/ { getline; YLABEL=$0; next; }
 
-/^(white|green|red|blue|yellow|purple|orange|magenta|pink)/ {
+/^(white|green|red|blue|yellow|purple|orange|magenta|pink)$/ {
 	current_dataset_color = $1;
 	next;
 }
 
 
 
-/^(box|[lr]arrow|diamond|dot|plus|[dhlruv]tick|x) / {
+/^([lr]arrow|box|diamond|dot|plus|[dhlruv]tick|x) / {
 	current_dataset_style = $1;
 	if(NF == 4)
 		current_dataset_color = $4;
@@ -191,6 +191,8 @@ BEGIN {
 
 END {
 	plot = "";
+	plot = plot "PS = 0.1;\n";
+	plot = plot "G = -1;\n";
 	plot = plot "set term x11 enhanced raise;\n";
 	plot = plot "set title \"" TITLE "\";\n";
 	plot = plot "set xlabel \"" XLABEL "\";\n";
@@ -245,7 +247,9 @@ END {
 	plot = plot "bind all \"ctrl-o\" \"set xr[0:]; set yr[0:]; replot;\";";
 	plot = plot "bind all \"ctrl-j\" \"PS = PS+0.1; replot;\";";
 	plot = plot "bind all \"ctrl-k\" \"PS = PS-0.1; replot;\";";
-	plot = plot "bind all \"ctrl-r\" \"G = G+1; if (G%4==0) set grid; replot; else if (G%4==1) set grid xtics ytics mxtics; replot; else if (G%4==2) set grid xtics ytics mxtics mytics; replot; else unset grid; replot;\";";
+	plot = plot "bind all \"ctrl-r\" \"G = G+1; " \
+			"if (G%4==0) set grid; replot; else if (G%4==1) set grid xtics ytics mxtics; replot; " \
+			"else if (G%4==2) set grid xtics ytics mxtics mytics; replot; else unset grid; replot;\";";
 
 	plot = plot "pause -1;\n";
 
