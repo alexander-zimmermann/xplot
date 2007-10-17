@@ -65,7 +65,7 @@ BEGIN {
 	colors["purple"] = 6;
 	colors["orange"] = 9;
 	colors["magenta"] = 4;
-	colors["pink"] = 12;
+	colors["pink"] = 5;
 
 	TITLE = FILENAME;
 	XLABEL = "x";
