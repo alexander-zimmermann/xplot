@@ -271,7 +271,7 @@ END {
 
 	/* Add key bindings */
 	plot = plot "bind all \"ctrl-p\" \"set output \\\"" BASENAME ".pdf\\\"; " \
-			"set term pdf color solid rounded enhanced fname \\\"Helvetica\\\" fsize 3 linewidth 1.0; replot; " \
+			"set term pdf color solid rounded enhanced fname \\\"Helvetica\\\" fsize 5 linewidth 1.0; replot; " \
 			"set term x11 enhanced raise; replot; set mouse;\";\n";
 	plot = plot "bind all \"ctrl-o\" \"set xr[0:]; set yr[0:]; replot;\";";
 	plot = plot "bind all \"ctrl-j\" \"PS = PS+0.1; replot;\";";
