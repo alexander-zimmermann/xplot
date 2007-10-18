@@ -240,8 +240,11 @@ END {
 		if (colors[color])
 			plot = plot " lc " colors[color];
 
-		if (tsg && color == "red" && style == "line")
-			retransmits_present = 1;
+		if (tsg)
+			if (color == "red" && style == "line")
+				retransmits_present = 1;
+			if (color == "purple" && style == "line")
+				sacks_present = 1;
 
 		plot = plot " notitle";
 	}
@@ -253,6 +256,10 @@ END {
 		plot = plot ", 1/0 lc " colors["white"] " title \"Sent Segments\"";
 		if (retransmits_present)
 			plot = plot ", 1/0 with points lc " colors["red"] " pt 1 title \"Retransmitted Segment\"";
+		if (sacks_present)
+			plot = plot ", 1/0 with points lc " colors["purple"] " pt 1 title \"Selective Acknowledgements\"";
+		if (ooos_present)
+			plot = plot ", 1/0 with points lc " colors["pink"] " pt 6 title \"Out-of-order segments\"";
 		plot = plot ";"
 		plot = plot "set key box top left;\n";
 		plot = plot "replot;\n";
