@@ -177,7 +177,10 @@ BEGIN {
 		ox=1; oy=0; 
 	}
 	getline;
-	print "set label \"" $0 "\" at " xpoint ", " ypoint " center offset " ox ", " oy " tc lt " colors[current_dataset_color] " noenhanced front" >> labels_file;
+	text = $0;
+	if (current_dataset_color == "pink" && text == "O")
+		ooos_present = 1;
+	print "set label \"" text "\" at " xpoint ", " ypoint " center offset " ox ", " oy " tc lt " colors[current_dataset_color] " noenhanced front" >> labels_file;
 	next;
 }
 
