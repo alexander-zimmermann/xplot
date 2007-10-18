@@ -42,6 +42,9 @@ function format_to(datatype)
 }
 
 BEGIN {
+	/* Special prerequisite for Time-Sequence diagrams */
+	tsg = index("_tsg", BASENAME) != -1;
+
 	styles["dot"] = "dots";
 	styles["line"] = "lines";
 	styles["diamond"] = "points pt 12 ps PS";
@@ -81,9 +84,6 @@ BEGIN {
 	labels_file = BASENAME ".labels";
 	printf("") >> labels_file;
 	current_dataset_file = "/nofile";
-
-	labels_present = 0;
-	label_index = 0;
 
 	# get the axis types
 	getline;
@@ -211,7 +211,6 @@ END {
 	plot = plot "load \"" labels_file "\";\n";
 
 	first = 1;
-	tsg = index("_tsg", BASENAME) != -1;
 
 	for (dataset in dataset_type) {
 
