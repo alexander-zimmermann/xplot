@@ -1312,7 +1312,6 @@ int main(int argc, char *argv[])
   coord y_synch_bb_bottom;
   coord x_synch_bb_right;
   coord y_synch_bb_top;
-  char outline[255];
 
   XEvent event;
   int i;
@@ -2036,7 +2035,8 @@ int main(int argc, char *argv[])
     case KeyRelease:
       // 'c' as in "cut"
       if(event.xkey.keycode == 54) {
-        printf(outline);
+        printf("<time_begin:time_end> = <%d:%d>\n",pl_x_left.i, pl_x_right.i);
+        fflush(stdout);
       }
       break;
     case ButtonPress:
@@ -2346,8 +2346,6 @@ int main(int argc, char *argv[])
 			      &(pl->x_left[newviewno]),
 			      &(pl->x_right[newviewno]));
 		do_x = x_synch;
-		sprintf(outline, "<time_begin:time_end> = <%d:%d>\n",pl->x_left[newviewno].i, pl->x_right[newviewno].i);
-		fflush(stdout);
 	      } else {
 		pl->x_left[newviewno] = pl_x_left;
 		pl->x_right[newviewno] = pl_x_right;
