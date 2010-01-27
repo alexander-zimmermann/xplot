@@ -767,7 +767,7 @@ void display_plotter(PLOTTER pl)
   attr.border_pixel     = pl->foreground_color.pixel;
   attr.event_mask       = ButtonReleaseMask|ButtonPressMask|ExposureMask|
     EnterWindowMask|LeaveWindowMask|PointerMotionMask|PointerMotionHintMask|
-    StructureNotifyMask|VisibilityChangeMask;
+    StructureNotifyMask|VisibilityChangeMask|KeyReleaseMask;
 #if 1
   attr.cursor           = XCreateFontCursor(pl->dpy, XC_crosshair);
 #else
@@ -1312,6 +1312,7 @@ int main(int argc, char *argv[])
   coord y_synch_bb_bottom;
   coord x_synch_bb_right;
   coord y_synch_bb_top;
+  char outline[255];
 
   XEvent event;
   int i;
@@ -2032,6 +2033,12 @@ int main(int argc, char *argv[])
 	pl->size_changed = 1;
       }
       break;
+    case KeyRelease:
+      // 'c' as in "cut"
+      if(event.xkey.keycode == 54) {
+        printf(outline);
+      }
+      break;
     case ButtonPress:
       if (pl->pointer_marks_on_screen) {
 	draw_pointer_marks(pl, pl->xorgc);
@@ -2339,6 +2346,8 @@ int main(int argc, char *argv[])
 			      &(pl->x_left[newviewno]),
 			      &(pl->x_right[newviewno]));
 		do_x = x_synch;
+		sprintf(outline, "<time_begin:time_end> = <%d:%d>\n",pl->x_left[newviewno].i, pl->x_right[newviewno].i);
+		fflush(stdout);
 	      } else {
 		pl->x_left[newviewno] = pl_x_left;
 		pl->x_right[newviewno] = pl_x_right;
