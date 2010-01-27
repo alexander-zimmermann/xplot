@@ -732,8 +732,9 @@ void display_plotter(PLOTTER pl)
     XColor exact_return;
     int i;
 
-    foreground_color_name = XGetDefault(pl->dpy, global_argv[0], "foreground");
-    if (!foreground_color_name) foreground_color_name = "white";
+//    foreground_color_name = XGetDefault(pl->dpy, global_argv[0], "foreground");
+//    if (!foreground_color_name) foreground_color_name = "white";
+	foreground_color_name = "white";
     i = XAllocNamedColor(pl->dpy, default_cmap, foreground_color_name,
 			 &exact_return, &pl->foreground_color);
     if (i < 0)
@@ -751,8 +752,9 @@ void display_plotter(PLOTTER pl)
     strcpy(ColorNames[0], foreground_color_name);
 #endif
 
-    background_color_name = XGetDefault(pl->dpy, global_argv[0], "background");
-    if (!background_color_name) background_color_name = "black";
+//    background_color_name = XGetDefault(pl->dpy, global_argv[0], "background");
+//    if (!background_color_name) background_color_name = "black";
+	background_color_name = "black";
     i = XAllocNamedColor(pl->dpy, default_cmap, background_color_name,
 			 &exact_return, &pl->background_color);
     if (i < 0)
@@ -2035,7 +2037,12 @@ int main(int argc, char *argv[])
     case KeyRelease:
       // 'c' as in "cut"
       if(event.xkey.keycode == 54) {
-        printf("<time_begin:time_end> = <%d:%d>\n",pl_x_left.i, pl_x_right.i);
+        if (pl->x_type == TIMEVAL) {
+          printf("<time_begin:time_end> = <%d:%d>\n",pl_x_left.i, pl_x_right.i);
+        }
+        if (pl->x_type == DTIME) {
+          printf("<time_begin:time_end> = <%f:%f>\n",pl_x_left.d, pl_x_right.d);
+        }
         fflush(stdout);
       }
       break;
