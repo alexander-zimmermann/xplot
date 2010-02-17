@@ -106,28 +106,63 @@ static lXPoint lXPoint_from_dXPoint(dXPoint dxp)
  64 - malloc overhead (on a mips)
 */
 
+#define UMNCOLORS 28 
+char *UMColorNames[UMNCOLORS] =
+{
+"white", "green", "red", "blue", "yellow", "purple", "orange", "magenta", "pink", "gray20",
+// new "colors"
+"window",
+"ack",
+"sack",
+"data",
+"retransmit",
+"duplicate",
+"reorder",
+"text",
+"default",
+"sinfin",
+"push",
+"ecn",
+"urgent",
+"probe",
+"a2bseg",
+"b2aseg",
+"nosampleack",
+"ambigousack",
+};
+
+int UMColorMap[UMNCOLORS] =
+{
+/* map default colors to defaults */
+0,1,2,3,4,5,6,7,8,9,
+/* map new "colors" to their old colors */
+4,1,5,0,2,3,8,7,0,6,0,4,2,6,1,4,3,2
+};	
+
 #define NCOLORS 10
 char *ColorNames[NCOLORS] =
 {
 "white", "green", "red", "blue", "yellow", "purple", "orange", "magenta", "pink", "gray20"
 };
+
 char *GrayPSrep[NCOLORS] =
 {
-  "0 setgray",			/* white */
-  ".3 setgray",			/* green */
-  ".5 setgray",			/* red */
-  ".7 setgray",			/* blue */
-  ".9 setgray",			/* yellow infreq */
-  ".6 setgray",			/* purple infreq */
+  "0 setgray",                  /* white */
+  ".3 setgray",                 /* green */
+  ".5 setgray",                 /* red */
+  ".7 setgray",                 /* blue */
+  ".9 setgray",                 /* yellow infreq */
+  ".6 setgray",                 /* purple infreq */
   ".8 setgray",
   ".4 setgray",
   ".95 setgray",
-  ".2 setgray"			/* 20% gray */
+  ".2 setgray"                  /* 20% gray */
 };
 char *ColorPSrep[NCOLORS] =
 {
-"0 setgray", "0 1 0 setrgbcolor", "1 0 0 setrgbcolor", "0 0 1 setrgbcolor", "1 1 0 setrgbcolor", "0 1 1 setrgbcolor", "1 .5 0 setrgbcolor", "0 .5 1 setrgbcolor", "1 .5 .5 setrgbcolor", "0.2 0.2 0.2 setrgbcolor"
+"0 setgray", "1 0 0 setrgbcolor", "1 0 0 setrgbcolor", "0 0 1 setrgbcolor", "1 1 0 setrgbcolor", "0 1 1 setrgbcolor", "1 .5 0 setrgbcolor", "0 .5 1 setrgbcolor", "1 .5 .5 setrgbcolor", "0.2 0.2 0.2 setrgbcolor"
 };
+
 
 int	NColors = NCOLORS;
 
@@ -935,6 +970,7 @@ void display_plotter(PLOTTER pl)
 	   )
 	{
 	  for ( ; ci < NColors; ci++)  {
+		
 	    XParseColor(pl->dpy, d_i[d].clr_map, ColorNames[ci], &d_i[d].clr);
 	    d_i[d].clr.pixel = d_i[d].pixel[ci];
 	    XStoreColor (pl->dpy, d_i[d].clr_map, &d_i[d].clr);
@@ -954,7 +990,7 @@ void display_plotter(PLOTTER pl)
 	    if ( i < 0 )
 	      {
 		fprintf(stderr, "XAllocNamedColor failed for %s: %d\n",
-			ColorNames[i], i);
+			ColorNames[ci], i);
 		break;
 	      }
 
@@ -2756,9 +2792,12 @@ xpcolor_t parse_color(char *s)
 
   if (isdigit(*s))
     return (xpcolor_t) atoi(s);
-  for (i=0; i < NCOLORS; ++i)
-    if (mystrcmp(s,ColorNames[i]) == 0)
-      return(i);
+  for (i=0; i < UMNCOLORS; ++i)
+    if (mystrcmp(s,UMColorNames[i]) == 0)
+    	{
+	int j = UMColorMap[i];
+      	return(j);
+	}
   return(-1);  /* not a color name */
 }
  
@@ -3478,7 +3517,6 @@ end\n\
 
     fputs("}\nifelse\n", fp);
   }
-
   fputs("%% string title --\n", fp);
   fprintf(fp, "/title {tfont setfont dup stringwidth pop neg\n");
   fprintf(fp, "        %d add 2 div\n", ((int)rint(pspl.size.x)));
