@@ -106,7 +106,7 @@ static lXPoint lXPoint_from_dXPoint(dXPoint dxp)
  64 - malloc overhead (on a mips)
 */
 
-#define UMNCOLORS 28 
+#define UMNCOLORS 29 
 char *UMColorNames[UMNCOLORS] =
 {
 "white", "green", "red", "blue", "yellow", "purple", "orange", "magenta", "pink", "gray20",
@@ -129,14 +129,14 @@ char *UMColorNames[UMNCOLORS] =
 "b2aseg",
 "nosampleack",
 "ambigousack",
-};
+"icmp"};
 
 int UMColorMap[UMNCOLORS] =
 {
 /* map default colors to defaults */
 0,1,2,3,4,5,6,7,8,9,
 /* map new "colors" to their old colors */
-4,1,5,0,2,3,8,7,0,6,0,4,2,6,1,4,3,2
+4,1,5,0,2,3,8,7,0,6,0,4,2,6,1,4,3,2,6
 };	
 
 #define NCOLORS 10
