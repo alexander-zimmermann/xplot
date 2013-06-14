@@ -28,7 +28,6 @@ AC_HEADER_STDC
 AC_HEADER_TIME
 
 AC_STRUCT_TM
-AC_TM_GMTOFF
 
 dnl Checks for library functions.
 
