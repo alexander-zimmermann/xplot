@@ -22,18 +22,14 @@ takes the output of
 .Dl tcpdump -tt -S ...
 and plots it in terms of sequence-number versus time, with other info
 displayed (e.g., the TCP window, acks, etc.).
-
 .Sh OPTIONS
 .Ar -?,
 .Ar -help
 prints a help message.
-
 .Ar -c, 
 ``cumulative'', adds all the data coming from a server.
-
 .Ar -list[filename] 
 prints the list of generated plot files to filename.
-
 .Ar -plot[filename]
 plots the packets from 
 .Ar filename.
@@ -49,22 +45,16 @@ where
 are extracted as conversations from the 
 .Nm tcpdump
 data.
-
 .Ar -q 
 means "quiet" --- no visible output.
-
 .Ar -r 
 means use relative sequence numbers.
-
 .Ar -s 
 means break up conversations on TCP syns.
-
 .Ar -t 
 convert time to decimal number of seconds.
-
 .Ar -w 
 plots the TCP window.
-
 .Sh EXAMPLES 
 .Sh SEE ALSO
 .Xr tcpdump 1 ,
