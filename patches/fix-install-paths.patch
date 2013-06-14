@@ -1,0 +1,14 @@
+Index: xplot-xplot.org-0.90.7.1/Makefile.in
+===================================================================
+--- xplot-xplot.org-0.90.7.1.orig/Makefile.in	2008-10-16 15:05:56.000000000 -0400
++++ xplot-xplot.org-0.90.7.1/Makefile.in	2008-10-16 15:06:19.000000000 -0400
+@@ -50,7 +50,7 @@
+ exec_prefix = @exec_prefix@
+ 
+ bindir = $(exec_prefix)/bin
+-mandir = $(exec_prefix)/man/man1
++mandir = $(exec_prefix)/share/man/man1
+ 
+ CFILES= xplot.c version_string.c coord.c unsigned.c signed.c timeval.c double.c dtime.c
+ OFILES= xplot.o version_string.o coord.o unsigned.o signed.o timeval.o double.o dtime.o
+ 
