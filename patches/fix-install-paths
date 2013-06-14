@@ -11,16 +11,4 @@ Index: xplot-xplot.org-0.90.7.1/Makefile.in
  
  CFILES= xplot.c version_string.c coord.c unsigned.c signed.c timeval.c double.c dtime.c
  OFILES= xplot.o version_string.o coord.o unsigned.o signed.o timeval.o double.o dtime.o
-@@ -71,10 +71,11 @@
- 
- install: all
- 	mkdir -p $(bindir)
--	$(INSTALL_PROGRAM) xplot $(bindir)/xplot
-+	$(INSTALL_PROGRAM) xplot $(bindir)/xplot.org
- 	$(INSTALL) tcpdump2xplot.pl $(bindir)/tcpdump2xplot
- 	mkdir -p $(mandir)
- 	$(INSTALL_MAN) $(MANFILES) $(mandir)
-+	mv $(mandir)/xplot.1 $(mandir)/xplot.org.1
- clean:
- 	rm -f ${PROG} ${PROG}.old *.o version_string.c
  
